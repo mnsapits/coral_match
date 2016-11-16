@@ -37,6 +37,7 @@ class Card extends Component {
             </div>
             <div className="back">
               <img
+                className="ocean-img"
                 src={ocean}
                 alt="Coral Match"
                 style={{width:275, height:275}}
@@ -62,6 +63,7 @@ class Card extends Component {
           </div>
           <div className="back">
             <img
+              className="ocean-img"
               src={ocean}
               alt="Coral Match"
               style={{width:275, height:275}}

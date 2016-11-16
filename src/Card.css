@@ -1,27 +1,81 @@
 .name-card {
+  position: relative;
   background-color: ivory;
   border: 1px solid black;
   border-radius: 10px;
-  height: 275px;
-  width: 275px;
-}
-.card-desc {
-  margin: 0px;
-  padding: 15px;
+  height: 270px;
+  width: 270px;
 }
 
 .pic-card{
+  padding: 5px;
+  position: relative;
   height: 275px;
   width: 275px;
 }
 
+.back,
+.front {
+  width: 275px;
+  height: 275px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 1s;
+          transition: transform 1s;
+}
+.back {
+  -webkit-transform: rotateY(-180deg);
+        transform: rotateY(-180deg);
+}
+
+.pic-card.effect__click.flipped .front {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.pic-card.effect__click.flipped .back {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+}
+
+.name-card.effect__click.flipped .front {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.name-card.effect__click.flipped .back {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+}
+
+.card-desc {
+  position: relative;
+  word-wrap: break-word;
+  margin-right: 0px;
+  width: 250px;
+}
+
+
 h1{
+  align-content: center;
+  word-wrap: break-word;
   padding-top: 15px;
   margin: 0px;
+  display: inline-block;
 }
 
 .pic-img {
   border-radius: 10px;
-  height: 275px;
+}
+
+.ocean-img{
+  border-radius: 10px;
+}
+.cards {
+  margin: 5px;
   width: 275px;
+  height: 275px;
 }

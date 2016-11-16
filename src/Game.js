@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Card from './Card';
 import './Game.css';
-
+import shuffle from 'lodash/shuffle';
 
 import anemoneImg from './images/anemone.jpg';
 import clownfishImg from './images/clownfish.jpg';
@@ -50,7 +50,7 @@ class Game extends Component {
         }
       });
     });
-    return (result);
+    return (shuffle(result));
   }
 
   render() {
