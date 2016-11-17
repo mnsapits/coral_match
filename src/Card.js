@@ -20,21 +20,22 @@ class Card extends Component {
     this.value = this.props.value;
     this.type = this.props.type;
     this.matchId = this.props.matchId;
-    this.state = { matched: false };
+    this.state = { flipped: false};
 
   }
 
   handleClick(e) {
-    this.props.matchCheck(this, e.currentTarget);
+    this.props.matchCheck(this);
   }
 
   cardValue() {
+    let flip = this.state.flipped ? " flipped" : "";
     if(this.type === 'text') {
       return (
         <li
           onClick={this.handleClick.bind(this)}
           data-matchId={this.matchId}
-          className="name-card">
+          className={"name-card" + flip}>
           <div
             className="front">
             <h1>{this.value}</h1>
@@ -56,7 +57,7 @@ class Card extends Component {
       <li
         onClick={this.handleClick.bind(this)}
         data-matchId={this.matchId}
-        className="pic-card">
+        className={"pic-card" + flip}>
         <div className="front">
           <img
           className="pic-img"
