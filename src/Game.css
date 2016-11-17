@@ -1,5 +1,22 @@
 .game-board {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.level-2-modal {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  overflow: auto;
+  border-radius: 5px;
+  outline: none;
+  padding: 20px;
+  transform: translate(-50%, -50%);
+  box-shadow: 2px 2px 2px 2px lightgrey;
+  z-index: 11;
+  background-color: white;
 }

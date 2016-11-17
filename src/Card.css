@@ -65,3 +65,7 @@ h1 {
   height: 275px;
   padding: 0px;
 }
+
+.cards:hover {
+  opacity: .9;
+}

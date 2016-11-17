@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Card.css';
-import ocean from './images/ocean.jpeg';
+import ocean from './images/ocean.jpg';
 
 
 const ANIMAL_INFO = {
@@ -25,16 +25,7 @@ class Card extends Component {
   }
 
   handleClick(e) {
-
-    let classNames = e.currentTarget.classList;
-    let matchId =
-    e.currentTarget.getAttribute('data-matchId');
-    console.log(matchId);
-    if (classNames.contains("flipped") === true) {
-      classNames.remove("flipped");
-    } else {
-      classNames.add("flipped");
-    }
+    this.props.matchCheck(this, e.currentTarget);
   }
 
   cardValue() {
