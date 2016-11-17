@@ -12,24 +12,51 @@ import starfishImg from './images/starfish.jpg';
 import tangImg from './images/tang.jpg';
 import urchinImg from './images/urchin.jpg';
 
+const DECK = [
+  ['Anemone', anemoneImg],
+  ['Clownfish', clownfishImg],
+  ['Mushroom Coral', mushroomImg],
+  ['Seahorse', seahorseImg],
+  ['Cleaner Shrimp', shrimpImg],
+  ['Starfish', starfishImg],
+  ['Blue Hippo Tang', tangImg],
+  ['Sea Urchin', urchinImg]
+];
+
 class Game extends Component {
   constructor() {
     super();
-    this.deck = [
-      ['Anemone', anemoneImg],
-      ['Clownfish', clownfishImg],
-      ['Mushroom Coral', mushroomImg],
-      ['Seahorse', seahorseImg],
-      ['Cleaner Shrimp', shrimpImg],
-      ['Starfish', starfishImg],
-      ['Blue Hippo Tang', tangImg],
-      ['Sea Urchin', urchinImg]
-  ];
+    this.state = {
+      lastCard: null,
+      matches: 0
+    };
+  }
+
+  matchCheck(clickedCardComp, clickedCardDom) {
+    let lastCard = this.state.lastCard;
+    if (clickedCardComp.state.matched) {
+      return;
+    } else if (clickedCardComp === lastCard) {
+      return;
+    }
+
+    if (lastCard) {
+      if (clickedCardComp.matchId === lastCard.matchId) {
+        let matches = this.state.matches;
+        clickedCardComp.setState({matched: true});
+        lastCard.setState({matched: true});
+        this.setState({lastCard: null, matches: matches + 1});
+      } else {
+        this.setState({lastCard: null});
+      }
+    } else {
+      this.setState({lastCard: clickedCardComp});
+    }
   }
 
   cards() {
     const result = [];
-    this.deck.forEach((pair, i) => {
+    DECK.forEach((pair, i) => {
       pair.forEach((cardVal, j) => {
         if(j === 0){
           result.push(<Card
@@ -52,6 +79,7 @@ class Game extends Component {
     });
     return (shuffle(result));
   }
+
 
   render() {
     return (
