@@ -4,8 +4,6 @@ import './Game.css';
 import shuffle from 'lodash/shuffle';
 var Modal = require('react-modal');
 
-import merge from 'lodash/merge';
-
 import anemoneImg from './images/anemone.jpg';
 import clownfishImg from './images/clownfish.jpg';
 import mushroomImg from './images/mushroom.jpg';
@@ -14,7 +12,6 @@ import shrimpImg from './images/shrimp.jpg';
 import starfishImg from './images/starfish.jpg';
 import tangImg from './images/tang.jpg';
 import urchinImg from './images/urchin.jpg';
-import modalback from './images/ocean-wallpaper.jpg';
 
 const DECK1 = [
   ['Anemone', anemoneImg],
@@ -30,24 +27,16 @@ const DECK2 = [
   ['Sea Urchin', urchinImg]
 ];
 
-const initialState = {
-  modalOpen: false,
-  lastCard: null,
-  matches: 0
-};
-
 class Game extends Component {
   constructor() {
     super();
-    this.state = merge({}, initialState, {
-      cards: shuffle(this.cards(DECK1))
-    });
-    // this.state = {
-    //   modalOpen: false,
-    //   cards: shuffle(this.cards(DECK1)),
-    //   lastCard: null,
-    //   matches: 0
-    // };
+    this.state = {
+      modalOpen: false,
+      cards: shuffle(this.cards(DECK1)),
+      lastCard: null,
+      matches: 0,
+      clicks: 0
+    };
   }
 
   cards(deck) {
@@ -86,19 +75,25 @@ class Game extends Component {
     }
     let lastCard = this.state.lastCard;
 
+    let clickCount = this.state.clicks;
     if (lastCard) {
+      this.setState({clicks: clickCount + 1});
       if (clickedCard.matchId === lastCard.matchId) {
         let matches = this.state.matches;
-
-        this.setState({lastCard: null, matches: matches + 1});
+        this.setState({
+          lastCard: null,
+          matches: matches + 1,
+          clicks: clickCount + 1
+        });
       } else {
         setTimeout(() => {
           clickedCard.setState({flipped: false});
           lastCard.setState({flipped: false});
-          this.setState({lastCard: null});
+          this.setState({lastCard: null, clicks: clickCount + 1});
         }, 400);
       }
     } else {
+      this.setState({clicks: clickCount + 1});
       this.setState({lastCard: clickedCard});
     }
   }
@@ -108,14 +103,19 @@ class Game extends Component {
       modalOpen: false,
       lastCard: null,
       matches: 5,
-      cards: shuffle(this.cards(DECK2))
+      cards: shuffle(this.cards(DECK2)),
+      clicks: 0
     });
   }
 
   restart() {
-    this.setState(merge({}, initialState, {
-      cards: shuffle(this.cards(DECK1))
-    }));
+    this.setState({
+      modalOpen: false,
+      lastCard: null,
+      matches: 5,
+      cards: shuffle(this.cards(DECK1)),
+      clicks: 0
+    });
   }
 
   componentWillMount() {
@@ -155,7 +155,7 @@ class Game extends Component {
   render() {
     return (
       <div className="game-board">
-          <div>
+          <div className="modal-container">
             {this.nextLevel()}
           </div>
         {this.state.cards}
