@@ -112,7 +112,7 @@ class Game extends Component {
     this.setState({
       modalOpen: false,
       lastCard: null,
-      matches: 5,
+      matches: 0,
       cards: shuffle(this.cards(DECK1)),
       clicks: 0
     });
@@ -154,11 +154,18 @@ class Game extends Component {
 
   render() {
     return (
-      <div className="game-board">
+      <div className="game-container">
           <div className="modal-container">
             {this.nextLevel()}
           </div>
-        {this.state.cards}
+          <div className="game-board">
+            {this.state.cards}
+          </div>
+          <div className="footer">
+            <div className="counter">
+              Click Count: {this.state.clicks}
+            </div>
+          </div>
       </div>
     );
   }

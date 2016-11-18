@@ -1,17 +1,15 @@
 .App {
   text-align: center;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Varela Round', sans-serif;
 }
 
 
 .App-header {
   background-color: #E1F9FF;
   width: 100%;
-  height: 20%;
   padding: 10px;
   color: navy;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 500;
   border-bottom: 1px solid navy;
 }
@@ -21,5 +19,5 @@
 }
 
 .title {
-  margin: 5px;
+  margin: 0px;
 }
