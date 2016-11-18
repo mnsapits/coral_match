@@ -66,6 +66,7 @@ class Game extends Component {
   });
     return result;
   }
+// need to deal with quick click issue
 
   matchCheck(clickedCard) {
     if (clickedCard.state.flipped) {
@@ -90,7 +91,7 @@ class Game extends Component {
           clickedCard.setState({flipped: false});
           lastCard.setState({flipped: false});
           this.setState({lastCard: null, clicks: clickCount + 1});
-        }, 400);
+        }, 500);
       }
     } else {
       this.setState({clicks: clickCount + 1});
