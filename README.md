@@ -6,11 +6,11 @@ Coral Match is an educational version of the well known card matching game. The 
 Users will be able to:
 - [ ] Play two levels
 - [ ] Flip cards and search for pairs
-- [ ] 
+- [ ] Keep track of user clicks
 
 In addition, this project will include:
-- [ ] Shuffle cards if time is up and reset
-- [ ] A modal with instructions
+- [ ] Shuffle cards on each new game
+- [ ] A modal when levels are completed
 - [ ] A production Readme
 
 ## Wireframe
@@ -21,19 +21,16 @@ Coral Match will consists of a single screen with the board, cards, title, timer
 
 ## Architecture and Technologies
 This project will be implemented with the following technologies:
-- Vanilla Javascript, `jquery`, and React for overall structure and game logic
-- Easel.js, and Move.js for DOM manipulation and rendering
+- Vanilla Javascript and React for overall structure and game logic
 - Webpack to bundle and serve up the various scripts
 
 In addition to the webpack entry file, there will be four additional script files.
 
-`board.js`: this script will handle the logic for placing the cards and creating the board with the necessary card pairs as well as rendering them on the DOM.
+`game.js`: this script will handle the logic for placing the cards and creating the board with the necessary card pairs as well as rendering them on the DOM.
 
 `card.js`: this script will handle creating the card pairs.
 
-`movements.js`: this script will handle the movement actions for the cards and the shuffling of the board.
-
-`timer.js`: this script will handle the timer DOM element.
+`timer.js`: A bonus feature, this script will handle the timer DOM element.
 
 ## Implementation Timeline
 
