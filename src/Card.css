@@ -4,13 +4,14 @@
   background-color: ivory;
   border: 1px solid black;
   border-radius: 10px;
-  height: 270px;
-  width: 270px;
+  height: 275px;
+  width: 275px;
 }
 
 .pic-card {
+  border: 1px solid navy;
+  border-radius: 10px;
   list-style: none;
-  padding: 5px;
   position: relative;
   height: 275px;
   width: 275px;
@@ -18,6 +19,9 @@
 
 .back,
 .front {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   width: 275px;
   height: 275px;
   position: absolute;
@@ -40,15 +44,15 @@
 .card-desc {
   position: relative;
   word-wrap: break-word;
-  margin: 5px;
+  padding: 0px 10px 10px 10px;
   width: 250px;
 }
 
 h1 {
   align-content: center;
   word-wrap: break-word;
-  padding-top: 15px;
-  margin: 0px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   display: inline-block;
 }
 

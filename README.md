@@ -4,9 +4,9 @@ Coral Match is an educational version of the well known card matching game. The 
 
 ## Functionality & MVP
 Users will be able to:
-- [ ] Specify the number of pairs up to 16
+- [ ] Play two levels
 - [ ] Flip cards and search for pairs
-- [ ] Set the time to complete the game
+- [ ] 
 
 In addition, this project will include:
 - [ ] Shuffle cards if time is up and reset
