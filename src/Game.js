@@ -155,18 +155,20 @@ class Game extends Component {
 
   render() {
     return (
-      <div className="game-container">
-          <div className="modal-container">
-            {this.nextLevel()}
-          </div>
-          <div className="game-board">
-            {this.state.cards}
-          </div>
-          <div className="footer">
-            <div className="counter">
-              Click Count: {this.state.clicks}
+      <div className="app-container">
+        <div className="game-container">
+            <div className="modal-container">
+              {this.nextLevel()}
             </div>
+            <div className="game-board">
+              {this.state.cards}
+            </div>
+        </div>
+        <div className="footer">
+          <div className="counter">
+            Click Count: {this.state.clicks}
           </div>
+        </div>
       </div>
     );
   }
