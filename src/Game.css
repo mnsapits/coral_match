@@ -6,6 +6,8 @@
   height: 60%;
   width: 100%;
   padding: 20px 0px;
+  max-width: 1140px;
+  margin: auto;
 }
 
 .level-1-modal, .level-2-modal {
