@@ -5,5 +5,5 @@ Coral Match is an educational version of the well known card matching game. The 
 ## Features & Implementation
 
 <hr>
-<img src="src/images/coral_match.gif" style="width:500px">
+<img src="src/images/old_coral_match.gif">
 <hr>
